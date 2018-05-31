@@ -1,0 +1,22 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="userinfo">
+            <button size="mini" wx:if="{{!hasUserInfo&&canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+            <block wx:else>
+                <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"/>
+                <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+            </block>
+        </view>
+    </view>
+    <view class="weui-cells">
+        <navigator url="/pages/order/order" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+                <image src="/images/order.png" />
+            </view>
+            <view class="weui-cell__bd">我的预约</view>
+            <view class="weui-cell__ft  weui-cell__ft_in-access"></view>
+        </navigator>
+    </view>
+    
+</view>

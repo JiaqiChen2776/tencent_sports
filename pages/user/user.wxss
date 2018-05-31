@@ -1,0 +1,49 @@
+/* pages/user/user.wxss */
+page {
+    background-color: #f3f3f7;
+}
+
+.header {
+    width: 100%;
+    height: 244rpx;
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+    background-color: #0061b8;
+}
+
+.header .userinfo-avatar {
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+    margin-left: 40rpx;
+    margin-right: 34rpx;
+}
+
+.header .userinfo-nickname {
+    display: inline-block;
+    font-size: 36rpx;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.weui-cells {
+    margin-top: 20rpx;
+}
+
+.weui-cell {
+    height: 80rpx;
+    border: 1px solid #fff;
+}
+
+.weui-cell__hd image {
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 16px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.weui-cell__bd {
+    font-size: 32rpx;
+}

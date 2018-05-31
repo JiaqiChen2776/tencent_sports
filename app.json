@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/user/user",
+    "pages/order/order",
+    
+    "pages/index/index",
+    "pages/game/game",
+    "pages/hot/hot",
+    "pages/logs/logs"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0061b8",
+    "navigationBarTitleText": "腾讯体育+",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#797979",
+    "selectedColor": "#3891ff",
+    "borderStyle": "#f5f5f5",
+    "backgroundColor": "#f5f5f5",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/football_icon_n.png",
+        "selectedIconPath": "images/football_icon.png",
+        "text": "世界杯"
+      },
+      {
+        "pagePath": "pages/hot/hot",
+        "iconPath": "images/hot_icon_n.png",
+        "selectedIconPath": "images/hot_icon.png",
+        "text": "热门"
+      },
+      {
+        "pagePath": "pages/game/game",
+        "iconPath": "images/game_icon_n.png",
+        "selectedIconPath": "images/game_icon.png",
+        "text": "赛事"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/user_icon_n.png",
+        "selectedIconPath": "images/user_icon.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

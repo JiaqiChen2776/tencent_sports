@@ -1,0 +1,55 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+    <view wx:if="{{hasOrder}}" class="gameOrder">
+        <view class="gameOrder" wx:for="{{orderList}}" wx:key="{{orderList.id}}">
+            <text class="gameDate">{{item.gameDate}}</text>
+            <view class="weui-cells">
+                <navigator url="/pages/order/order" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd">
+                        <text>{{item.gameTime}}</text>
+                        <text>{{item.gameName}}</text>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <view class="team_1">
+                            <image src="{{item.team_1_pic}}"></image><span>{{item.team_1}}</span>
+                        </view>
+                        <view class="team_2">
+                            <image src="{{item.team_2_pic}}"></image><span>{{item.team_2}}</span>
+                        </view>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <view class="ft_left">
+                            <view wx:if="{{item.isStart}}">
+                                <text class="gameScore scoreM">{{item.team_1_score}}</text>
+                                <text class="gameScore">{{item.team_2_score}}</text>
+                            </view>
+                            <view wx:else>
+                                <text class="gameScore scoreM">-</text>
+                                <text class="gameScore">-</text>
+                            </view>
+                        </view>
+                        <view class="ft_right">
+                            <view wx:if="{{item.gameLive}}" class="gameLive">
+                                <view wx:if="{{v_live}}">
+                                    <image class="livePic" src="{{vLive_pic}}"/>
+                                    <span>{{vLive_text}}</span>
+                                </view>
+                                <view wx:else>
+                                    <image class="livePic" src="{{pLive_pic}}"/>
+                                    <span>{{pLive_text}}</span>
+                                </view>
+                            </view>
+                            <view wx:else class="gameLive">
+                                <span>未开始</span>
+                            </view>
+                        </view>
+                        
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view wx:else class="noOrders">
+        <text>没有预约比赛</text>
+    </view>
+</view>
