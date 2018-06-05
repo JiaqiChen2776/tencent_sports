@@ -1,1 +1,69 @@
 /* pages/game/game.wxss */
+
+.container {
+    width: 100%;
+    height: 100% ;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f3f3f7;
+}
+
+.gameSort {
+    display: block;
+    width: 100%;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.gameSort:nth-child(3) {
+    margin-bottom: 0;
+}
+
+.gameSort .sort-hd {
+    font-size: 31rpx;
+    color: #898989;
+    display: block;
+    text-align: center;
+    padding: 15rpx 0 15rpx 0;
+}
+
+.sort-bd {
+    width: 100%;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    box-sizing: border-box;
+}
+
+.sort-bd .sortBox {
+    width: 203rpx;
+    height: 180rpx;
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+    float: left;
+    margin-bottom: 20rpx;
+    margin-right: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sort-bd .sortBox:nth-child(3n) {
+    margin-right: 0;
+}
+
+.sort-bd .item .bbpic {
+    width: 100rpx;
+    height: 100rpx;
+    box-sizing: border-box;
+}
+
+.sort-bd .gameSort__bd {
+    font-size: 33rpx;
+    text-align: center;
+}
+
+

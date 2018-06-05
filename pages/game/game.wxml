@@ -1,2 +1,43 @@
 <!--pages/game/game.wxml-->
-<text>pages/game/game.wxml</text>
+<view class="container">
+    <view class="gameSort">
+        <span class="sort-hd">篮球</span>
+        <view class="sort-bd">
+            <view class="sortBox" wx:for="{{bbSortList}}" wx:key="{{item.id}}">
+                <navigator url="{{item.navigationUrl}}" class="item">
+                    <view class="gameSort__hd">
+                        <image src="{{item.bbPic}}" class="bbpic"/>
+                    </view>
+                    <view class="gameSort__bd">{{item.bbName}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="gameSort">
+        <span class="sort-hd">足球</span>
+        <view class="sort-bd">
+            <view class="sortBox" wx:for="{{fbSortList}}" wx:key="{{item.id}}">
+                <navigator url="{{navigationUrl}}" class="item">
+                    <view class="gameSort__hd">
+                        <image src="{{item.bbPic}}" class="bbpic"/>
+                    </view>
+                    <view class="gameSort__bd">{{item.bbName}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="gameSort">
+        <span class="sort-hd">其他</span>
+        <view class="sort-bd">
+            <view class="sortBox" wx:for="{{otherList}}" wx:key="{{item.id}}">
+                <navigator url="{{navigationUrl}}" class="item">
+                    <view class="gameSort__hd">
+                        <image src="{{item.bbPic}}" class="bbpic"/>
+                    </view>
+                    <view class="gameSort__bd">{{item.bbName}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    
+</view>
