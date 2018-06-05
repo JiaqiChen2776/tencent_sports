@@ -1,13 +1,63 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="headBox" style="background-image: url(../../images/wc/top-bg.png)">
+    <view class="head-title">
+      <span>距世界杯开始还有<span style="font-size: 32rpx"> 10 </span>天</span>
+    </view>
+    <view class="head-bd">
+      <scroll-view scroll-x="true" style="white-space:nowrap">
+        <view class="gameBox" wx:for="{{gameList}}" wx:key="{{item.id}}">
+            <navigator url="{{item.navigateUrl}}">
+              <view class="game-bd">
+                <view class="gameTeam">
+                  <view class="team_1">
+                    <image src="{{item.team_1_pic}}"></image><span>{{item.team_1}}</span>
+                  </view>
+                  <view class="team_2">
+                      <image src="{{item.team_2_pic}}"></image><span>{{item.team_2}}</span>
+                  </view>
+                </view>
+                <view wx:if="{{item.isStart}}" class="gameScore">
+                  <text class="teamScore scoreM">{{item.team_1_score}}</text>
+                  <text class="teamScore">{{item.team_2_score}}</text>
+                </view>
+                <view wx:else class="gameScore">
+                    <text class="teamScore scoreM">-</text>
+                    <text class="teamScore">-</text>
+                </view>
+              </view>
+              <view class="game-ft">
+                <view class="startTime">
+                  <span class="g-date">{{item.gameDate}}</span>
+                  <span class="g-time">{{item.gameTime}}</span>
+                </view>
+                <view wx:if="{{item.isStart}}" class="isStart">
+    
+                </view>
+                <view wx:else class="isStart">
+                  <span>未开始</span>
+                </view>
+              </view>
+            </navigator>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="head-ft">
+      <view wx:for="{{iconList}}" wx:key="index" class="ft-item">
+          <image src="{{item.linksPic}}"/>
+          <text>{{item.linksText}}</text>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="bodyBox">
+    <navigator url="/pages/order/order" class="articleBox" wx:for="{{articleList}}" wx:key="{{item.id}}">
+      <view class="article-hd">
+        <span class="articleTitle">{{item.articleTitle}}</span>
+        <span class="articlecomments">{{item.commentsNum}}评</span>
+      </view>
+      <view class="article-ft">
+        <image src="{{item.articlePic}}"></image>
+      </view>
+    </navigator>
   </view>
 </view>
