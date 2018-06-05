@@ -5,14 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    month: '',
+    day: ''
+  },
+
+  preDay() {
+    let day = this.data.day;
+    this.setData({
+      day: day-1
+    })
+  },
+
+  nextDay() {
+    let day = this.data.day;
+    this.setData({
+      day: day+1
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let date = new Date;
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    this.setData({
+      month,
+      day
+    })
   },
 
   /**

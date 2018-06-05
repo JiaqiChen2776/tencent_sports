@@ -1,2 +1,32 @@
 <!--pages/hot/hot.wxml-->
-<text>pages/hot/hot.wxml</text>
+<template name="oneDaySchedule">
+    <view class="no-match" id="matchcontent" wx:if="{{!list.length}}">
+        本日暂无比赛
+    </view>
+    <scroll-view bindscrolltolower="handleScrollToLower" class="one-day" lowerThreshold="50" scrollIntoView="{{toView}}" scrollY="true" style="height: {{contentHeight-51}}px; background-color: #ffffff; padding-bottom: 0;" wx:else>
+        <schedule-item id="tua{{matchMid}}" match="{{matchMap[matchMid]}}" wx:for="{{isLoaded?fullList:list}}" wx:for-item="matchMid" wx:key="matchMid"></schedule-item>
+        <view class="loading" wx:if="{{!isLoaded&&list.length!==fullList.length}}">
+            加载更多
+        </view>
+    </scroll-view>
+</template>
+<view class="content">
+    <view class="date-nav">
+        <view bindtap="preDay" class="icon-base pre-day">
+            &gt;
+        </view>
+        <navigator class="cur-day" url="/pages/calendar/calendar?date={{curday}}&type=num&from=index">
+            {{month}}月{{day}}日
+            <view class="calendar-icon"></view>
+        </navigator>
+        <view bindtap="nextDay" class="icon-base next-day">
+            &lt;
+        </view>
+    </view>
+    <swiper bindchange="handleChangeDay" current="{{current}}" style="height: {{contentHeight-51}}px">
+        <swiper-item wx:for="{{dayList}}" wx:for-index="dayIdx" wx:for-item="oneDay" wx:key="oneDay">
+            <template is="oneDaySchedule" data="{{...cachedMatchMap[oneDay],contentHeight:contentHeight,toView:toView}}"></template>
+        </swiper-item>
+    </swiper>
+</view>
+
