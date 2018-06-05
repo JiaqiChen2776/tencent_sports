@@ -2,7 +2,10 @@
 <view class="container">
     <view class="header">
         <view class="userinfo">
-            <button size="mini" wx:if="{{!hasUserInfo&&canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+            <block wx:if="{{!hasUserInfo&&canIUse}}">
+                <image class="userinfo-avatar" src="../../images/avatar-default.png"/>
+                <button size="mini"open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+            </block>
             <block wx:else>
                 <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"/>
                 <text class="userinfo-nickname">{{userInfo.nickName}}</text>
