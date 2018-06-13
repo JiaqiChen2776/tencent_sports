@@ -1,0 +1,36 @@
+<!--pages/articleDetail/articleDetail.wxml-->
+<view class="container">
+    <view class="articleBox" >
+        <view class="article_header">
+            <text class="article_title">{{article.articleTitle}}</text>
+            <text class="article_date">{{article.articleDate}}</text>
+        </view>
+        <view class="article_pic">
+            <!-- <video src="{{article.videoUrl}}" 
+            poster="{{article.imgUrl}}" 
+            objectFit="cover" 
+            controls="{{true}}"/> -->
+            <image src="{{article.imgUrl}}"/>
+        </view>
+        <view class="article_content">
+            <p>{{article.articleContent}}</p>
+        </view>
+    </view>
+    <view class="comments">
+            <view class="com_hd">
+                评论 {{article.commentsNum}}
+            </view>
+            <view class="comBox" wx:for="{{article.comments}}" wx:for-item="comment">
+                <view class="comBox_hd">
+                    <view class="userInfo">
+                        <image class="userThumb" src="{{comment.userThumbs}}"/>
+                        <text class="userName">{{comment.userName}}</text>
+                    </view>
+                    <text class="comTime">{{comment.comTime}}</text>
+                </view>
+                <view class="comBox_bd">
+                    <p>{{comment.comment}}</p>
+                </view>
+            </view>
+        </view>
+</view>

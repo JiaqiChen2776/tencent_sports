@@ -1,0 +1,90 @@
+/* pages/articleDetail/articleDetail.wxss */
+.container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: #f3f3f7;
+}
+.articleBox {
+    background: #fff;
+}
+
+.articleBox .article_content {
+    padding: 70rpx 40rpx;
+}
+
+.article_header {
+    padding: 50rpx;
+}
+
+.article_header text {
+    display: block;
+}
+
+.article_header .article_title {
+    font-size: 45rpx;
+}
+
+.article_header .article_date {
+    font-size: 28rpx;
+    color: #898989;
+    padding-top: 15rpx;
+}
+
+.article_pic {
+    width: 100%;
+}
+
+.article_pic image {
+    width: 100%;
+}
+
+.comments {
+    background: #fff;
+    margin-top: 25rpx;
+    padding-bottom: 60rpx;
+}
+
+.comments .com_hd {
+    font-size: 30rpx;
+    padding: 20rpx;
+    border-bottom: 1px solid #ccc;
+}
+
+.comments .comBox {
+    padding: 50rpx 35rpx 0 35rpx;
+}
+
+.comBox .comBox_hd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comBox_hd .userInfo {
+    display: flex;
+    align-items: center;
+}
+
+.comBox .comBox_hd .userThumb{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-right: 25rpx;
+}
+
+.comBox .comBox_hd .userName {
+    font-size: 28rpx;
+    color: #898989;
+}
+
+.comBox .comBox_hd .comTime {
+    font-size: 24rpx;
+    color: #898989;
+}
+
+.comBox_bd {
+    font-size: 32rpx;
+    padding-left: 75rpx;
+}
+
