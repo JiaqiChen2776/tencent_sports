@@ -12,14 +12,15 @@ page {
 
 .headBox {
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 420rpx;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .headBox .head-title{
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #ebcb8f;
-  padding: 5rpx 0 5rpx 25rpx;   
+  padding: 15rpx 0 10rpx 25rpx;   
 }
 
 
@@ -29,8 +30,12 @@ page {
   border-radius: 10rpx;
   margin: 10rpx 0 10rpx 25rpx;
   width: 340rpx;
-  height: 150rpx;
+  height: 155rpx;
   position: relative;
+}
+
+.gameBox:nth-child(4) {
+  margin-right: 25rpx;
 }
 
 .game-bd {
@@ -64,12 +69,12 @@ page {
 }
 
 .gameTeam image {
-  width: 35rpx;
-  height: 35rpx;
+  width: 38rpx;
+  height: 38rpx;
 }
 
 .gameTeam span {
-  font-size: 24rpx;
+  font-size: 28rpx;
   padding-left: 20rpx;
 }
 
@@ -92,11 +97,12 @@ page {
 
 .game-ft .startTime, .isStart {
   display: inline-block;
-  font-size: 20rpx;
+  font-size: 22rpx;
   color: #898989;
 }
 
 .head-ft {
+  padding: 10rpx;
   display: flex;
   justify-content: space-around;
   
@@ -109,12 +115,13 @@ page {
 }
 
 .head-ft image {
-  width: 60rpx;
-  height: 60rpx;
+  width: 62rpx;
+  height: 62rpx;
 }
 
 .head-ft text {
-  font-size: 22rpx;
+  margin-top: 10rpx;
+  font-size: 26rpx;
   color: #ebcb8f;
 }
 
@@ -143,13 +150,13 @@ page {
 }
 
 .article-hd .articlecomments {
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #898989;
   padding-top: 12rpx;
 }
 
 .articleBox .article-hd .articleTitle {
-  font-size: 30rpx;
+  font-size: 34rpx;
 }
 
 .article-ft {

@@ -1,13 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="headBox" style="background-image: url(../../images/wc/top-bg.png)">
+  <view class="headBox" style="background:#0061b8">
     <view class="head-title">
-      <span>距世界杯开始还有<span style="font-size: 32rpx"> 10 </span>天</span>
+      <span>距世界杯开始还有<span style="font-size: 38rpx;font-weight: bold"> {{days}} </span>天</span>
     </view>
     <view class="head-bd">
       <scroll-view scroll-x="true" style="white-space:nowrap">
-        <view class="gameBox" wx:for="{{gameList}}" wx:key="{{item.id}}">
-            <navigator url="{{item.navigateUrl}}">
+        <view class="gameBox" wx:for="{{gameList}}" data-id="{{item.id}}" wx:key="{{item.id}}">
+            <navigator url="/pages/matchDetail/matchDetail?id={{item.id}}">
               <view class="game-bd">
                 <view class="gameTeam">
                   <view class="team_1">
@@ -43,20 +43,20 @@
       </scroll-view>
     </view>
     <view class="head-ft">
-      <view wx:for="{{iconList}}" wx:key="index" class="ft-item">
+      <navigator url="/pages/wcMatches/wcMatches" wx:for="{{iconList}}" wx:key="index" class="ft-item">
           <image src="{{item.linksPic}}"/>
           <text>{{item.linksText}}</text>
-      </view>
+      </navigator>
     </view>
   </view>
   <view class="bodyBox">
-    <navigator url="/pages/order/order" class="articleBox" wx:for="{{articleList}}" wx:key="{{item.id}}">
+    <navigator url="/pages/articleDetail/articleDetail?id={{item.id}}" class="articleBox" wx:for="{{articleList}}" wx:key="{{item.id}}">
       <view class="article-hd">
         <span class="articleTitle">{{item.articleTitle}}</span>
         <span class="articlecomments">{{item.commentsNum}}评</span>
       </view>
       <view class="article-ft">
-        <image src="{{item.articlePic}}"></image>
+        <image src="{{item.imgUrl}}"></image>
       </view>
     </navigator>
   </view>
