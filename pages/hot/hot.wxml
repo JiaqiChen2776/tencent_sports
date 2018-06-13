@@ -1,31 +1,70 @@
-<!--pages/hot/hot.wxml-->
-<template name="oneDaySchedule">
-    <view class="no-match" id="matchcontent" wx:if="{{!list.length}}">
-        本日暂无比赛
-    </view>
-    <scroll-view bindscrolltolower="handleScrollToLower" class="one-day" lowerThreshold="50" scrollIntoView="{{toView}}" scrollY="true" style="height: {{contentHeight-51}}px; background-color: #ffffff; padding-bottom: 0;" wx:else>
-        <schedule-item id="tua{{matchMid}}" match="{{matchMap[matchMid]}}" wx:for="{{isLoaded?fullList:list}}" wx:for-item="matchMid" wx:key="matchMid"></schedule-item>
-        <view class="loading" wx:if="{{!isLoaded&&list.length!==fullList.length}}">
-            加载更多
-        </view>
-    </scroll-view>
-</template>
 <view class="content">
     <view class="date-nav">
         <view bindtap="preDay" class="icon-base pre-day">
             &gt;
         </view>
         <navigator class="cur-day" url="/pages/calendar/calendar?date={{curday}}&type=num&from=index">
-            {{month}}月{{day}}日
+            {{curDate}}
             <view class="calendar-icon"></view>
         </navigator>
         <view bindtap="nextDay" class="icon-base next-day">
             &lt;
         </view>
     </view>
-    <swiper bindchange="handleChangeDay" current="{{current}}" style="height: {{contentHeight-51}}px">
-        <swiper-item wx:for="{{dayList}}" wx:for-index="dayIdx" wx:for-item="oneDay" wx:key="oneDay">
-            <template is="oneDaySchedule" data="{{...cachedMatchMap[oneDay],contentHeight:contentHeight,toView:toView}}"></template>
+    
+    <swiper bindchange="changeMatch" circular="true" class="one-day" current="{{swiperCurIndex}}">
+        <swiper-item wx:for="{{dayList}}" wx:for-index="index">
+            <view wx:if="{{item.gameDate==curDate}}">
+                <view class="matchList" wx:for="{{item.gameList}}" wx:for-item="match" wx:key="{{match.id}}">
+                    <view class="weui-cells">
+                        <navigator url="/pages/order/order" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd">
+                                <text>{{match.gameTime}}</text>
+                                <text>{{match.gameName}}</text>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view class="team_1">
+                                    <image src="{{match.team_1_pic}}"></image><span>{{match.team_1}}</span>
+                                </view>
+                                <view class="team_2">
+                                    <image src="{{match.team_2_pic}}"></image><span>{{match.team_2}}</span>
+                                </view>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <view class="ft_left">
+                                    <view wx:if="{{match.isStart}}">
+                                        <text class="gameScore scoreM">{{match.team_1_score}}</text>
+                                        <text class="gameScore">{{match.team_2_score}}</text>
+                                    </view>
+                                    <view wx:else>
+                                        <text class="gameScore scoreM">-</text>
+                                        <text class="gameScore">-</text>
+                                    </view>
+                                </view>
+                                <view class="ft_right">
+                                    <view wx:if="{{match.gameLive}}" class="gameLive">
+                                        <view wx:if="{{v_live}}">
+                                            <image class="livePic" src="{{vLive_pic}}"/>
+                                            <span>{{vLive_text}}</span>
+                                        </view>
+                                        <view wx:else>
+                                            <image class="livePic" src="{{pLive_pic}}"/>
+                                            <span>{{pLive_text}}</span>
+                                        </view>
+                                    </view>
+                                    <view wx:else class="gameLive">
+                                        <span>未开始</span>
+                                    </view>
+                                </view>
+                                
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+            <view wx:else class="noMatches">
+                本日暂无比赛
+            </view>
         </swiper-item>
     </swiper>
 </view>

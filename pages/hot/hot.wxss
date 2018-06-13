@@ -1,235 +1,16 @@
-/* pages/hot/hot.wxss */
-.items-count-1 {
-    width: 100%;
+html,body {
+    margin: 0;
+    background-color: #fff;
 }
 
-.items-count-2 {
-    width: 50%;
-}
-
-.items-count-3 {
-    width: 33.3%;
-}
-
-.items-count-4 {
-    width: 25%;
-}
-
-.items-count-5 {
-    width: 20%;
-}
-
-.tab-item {
-    box-sizing: border-box;
-    float: left;
-    height: 36px;
-}
-
-.tab-item.selected {
-    border-bottom: 2px solid #82b1ff;
-    color: #fff;
-}
-
-.tab {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    height: 36px;
-    line-height: 36px;
-    background-color: #2b58e0;
-    color: #b4c8ff;
-    font-size: 15px;
-    z-index: 3;
-    overflow: hidden;
-    text-align: center;
-    -webkit-transform: translateZ(0);
-}
-
-.match-item {
-    display: flex;
-    border-bottom: 1px solid #f3f3f7;
-}
-
-.match-item .left-icon,.match-item .right-icon {
-    position: relative;
-    flex: 2;
-}
-
-.match-item .match-info {
-    position: relative;
-    flex: 3;
-}
-
-.attend-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180rpx;
-    margin: 14rpx auto;
-    border: 0!important;
-    border-radius: 30rpx;
-    font-size: 24rpx;
-    line-height: 60rpx;
-}
-
-.attend-btn .clock {
-    width: 30rpx;
-    height: 24rpx;
-    margin-top: -4rpx;
-    margin-right: 8rpx;
-}
-
-.attend-btn.active {
-    color: #fff;
-    background-color: #448aff;
-}
-
-.attend-btn.cancel {
-    color: #000;
-    background-color: #f3f3f7;
-}
-
-.in-game .match-score {
-    color: #FF6257;
-}
-
-.in-game .match-time {
-    color: #FF6257;
-}
-
-.in-game .score-space {
-    background-color: #FF6257;
-}
-
-.post-game .match-score {
-    color: #000;
-}
-
-.post-game .score-space {
-    background-color: #000;
-}
-
-.pre-game .match-score {
-    font-size: 16px;
-}
-
-.team-name {
-    display: block;
-    overflow: hidden;
-    height: 40px;
-    margin-top: 68px;
-    text-align: center;
-    color: #000;
-    font-size: 14px;
-    line-height: 40px;
-}
-
-.icon-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    margin-top: -20px;
-    margin-left: -20px;
-}
-
-.match-time,.match-status {
-    height: 14px;
-    margin-top: 12px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.match-status {
-    margin-top: 10px;
-}
-
-.left-score,.right-score {
-    position: absolute;
-}
-
-.right-score {
-    left: 50%;
-    margin-left: 15px;
-}
-
-.left-score {
-    right: 50%;
-    margin-right: 15px;
-}
-
-.score-space {
-    display: inline-block;
-    width: 6px;
-    height: 2px;
-    vertical-align: 7px;
-    background-color: #000;
-}
-
-.match-score {
-    position: relative;
-    height: 30px;
-    margin-top: 15px;
-    text-align: center;
-    color: #ADB4BE;
-    font-size: 30px;
-    line-height: 30px;
-}
-
-.navigator-hover {
-    background-color: #F7F9FC;
-}
-
-.n-match-info {
+page {
     width: 100%;
     height: 100%;
 }
 
-.n-match-status {
-    height: 14px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.n-match-time {
-    height: 14px;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.n-match-name {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #000000;
-    font-size: 16px;
-}
-
-.n-img {
-    position: absolute;
-    top: 7px;
-    width: 24px;
-    height: 24px;
-}
-
-.n-text {
-    padding-left: 26px;
-}
-
-image>div {
-    background-size: 100% 100%;
-}
-
-html,body {
-    margin: 0;
-    background-color: #fff;
+.content {
+    width: 100%;
+    height: 100%;
 }
 
 .date-nav {
@@ -240,6 +21,7 @@ html,body {
     background-color: #fff;
     font-size: 14px;
     line-height: 50px;
+    box-sizing: border-box;
 }
 
 .icon-base {
@@ -295,100 +77,116 @@ html,body {
     background-size: 20px 20px;
 }
 
-.gif-preview {
-    display: block;
-    width: 100%;
-}
-
-.play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 52px;
-    height: 52px;
-    margin-top: -26px;
-    margin-left: -26px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAADSUExURQAAAAQEBAAAAP39/QAAAPz8/Dk5OUxpcQ4ODqWlpQAAAJ+fn0xMTCEhIVZWVtvb27i4uPr6+rOzs0VFRXh4eK+vry8vLzU1NQAAAAAAAG9vb319fQAAAL+/vwAAAAAAAKurqwAAAODg4NLS0u/v7/T09ICAgM3Nzb+/v+Tk5JCQkBgYGOvr6xISEpaWlpmZmZqamuXl5QAAAAAAAObm5qSkpMTExAAAAKGhoQAAAAAAAAAAAAAAAAAAAAAAALOzs4yMjFtbW2VlZQAAAN3d3f///13ZOe0AAABFdFJOU7O0rf4W/sAAtd6c3MS5x+zk/eLD0OG9vjunzdFm3Q6IHl7y7fn70+Hm9Ne49rbZ2tr0bUz0QbwiKQSjlEFve2LWXMsr8ZAVDiwAAAQNSURBVHjavdpXe6JAAIXhoyJBqtg1GnXtLW56b67n//+lhYmJZteAEpz3zqvvUXBgCo521Hp5az83H/QqWdUfms/tt5fW0Y52iiiPT3qGrxBICK/M6E+PSjyRq7YOT4HZr5EsC/Do7aufRk4uHJbgy3P5NbJkHr4SnYuTH0SUehI5nsKn0U1sRhIuNfhOmUOyrkSMKOdJADYvIZxR3YyoPINwSRtA8lyJEGldWxCmNOHLZMvYUM4a8JmcQrCuW/tGKg3mIBgsIkCRBoQcG5W9IkoTJXd1YdXlMQIcL1X48nRLaCq7RypV8Q062ENHfKNqZcfIXR2+WZc17KzG7gy++t0ukduBBaGQmmNn81QBgjW4DY8oDToaBBV7UCFoDhtKWOTmfjLiEJENOZrc3wRH/iSBco+/EdFv9spA8k9Q5CYJj52miUhMpm14kjffR5R7CP0xIhr3Idwr30VuGxPEZNK43R65G3BURizKIw7utkbqlsOejRjYPTpWfVukAmhDpvv4sX6aQw2o/B9Rqu+34Bg/NuZveKrKf5EmBBMxMCE0/41UcACVr5FWo4TYlRqtL5FrusYMsZoZLq83I4qVI7sFxKjQJXOWshE5B/IdplTERk2xkwfO1xElCU9tjhjNa/Aklc9IHQdT/4icJHEwyZNV5AIHdLGKODkbB2LnnPfIFcmpoSJ2qjEleSUi7dLpJblE7Jbk5WmpLSI6ALN4jNgdF00Auh9RcGCKF3nEgT16kScc2JMX0XFg+hFamUJeQ4iEWrPLCUSg5QuZFl7oOTOCCmPHpW9g4p2bSmmAltpkYAvjjJ4XvL1mly6z+JbV4adhAr406Ue4aWskS3eZfX1DW/waZXwn3yXd4bzWF3/f3D+R4qcFtiirCcBLPCNQYkSe5Vc/G8nC10gC4bxEE4H65GiGFYPsRIg08YAgky65WH9ymZ7sH3mAjiA10sGaXatZ+0d0VBHklFtmXftGqqCAb2TJQlAk88HAVhRCIg5pw2dlVszNyFovMFINe+6Y8KlcOd4rIlRDLvyQrAVFZtqHwAv/gCBzcgxB8w29SJRbuBl2Cw+wlo0UaYYMK1aPNH8aeQ4bIMdkR4sWWQ+QYUO9NiVHebwzfwVEAob60IeW3SXTg8zxom849BT2iWRWD63Qx6814NqvBbZEwh6/u7xI9Ds9+qadWpSxS9/1lai0WKgaonmS8nIn5TVVxgu3lKmDlEmQjOmclImplCm2jMUCKcseEhdwfIpVPMRSVNFSZCyqSVkelLHQKWPJVsris4xldBkbAlK2NmRs0sjYbpKxcSZjC1DGZqaMbVkZG8ySt8rlb/rLP74gVBosRjiIEfuRkkzYkRL5h2PkH/OJfmBJ/tEr+YfIpByH+wt/OQ3Y1xr8XwAAAABJRU5ErkJggg==) no-repeat;
-    background-size: 52px 52px;
-}
-
-.gif-title {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0 12px 12px 12px;
-    color: #fff;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-.gif-background {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 72px;
-    background-image: linear-gradient(-180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%);
-}
-
-.gif-item {
-    position: relative;
-    margin-bottom: 4px;
-}
-
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
 .content {
     min-height: 350px;
 }
 
-.more-match {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    width: 52px;
-    height: 52px;
-    -webkit-transform: translateZ(0);
-    opacity: 0.8;
-    border-radius: 26px;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGgAAABoCAMAAAAqwkWTAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACWUExURUxpcStY4CtY4CtY4Dt2/ytZ4CtY4StY4S1Y4jJc5itY4C9Y5ytZ4CxY4CtY4CxY4C5c5yta4S1a4Stc4yxY4CtZ4TBb4C1a4itY4P///+fs+2uK6u/y/VV55sPQ9uDn+jNe4WeH6HmW612A56a48S9b4ERr5Iih7tbf+aC18evv/LPD9Jas8FB15Txm49Da+Pn6/vz9/oTitm4AAAAYdFJOUwDS99kEje3ISx7oFa5o4bgLV3cvsqMqPuf70/IAAAN4SURBVHjavdpdd6IwEAbgoEJQxNaq9Q0giAhIpX78/z+3hHK2e2yXRIV5LmKON3NMBoTMMH3O2jWX3JhZg4E1M/jSdNcO69q7O7XwC2vqvrOujOzVBC0mK3vEnrcwJ1CamAv2HJtDE7fZ4+YG7mDMH/01Q9xp+MivGk/xgOn43kx7G+Ahg7fRXT+H42F8zLTZFp5g2brLZuJJptbyvb7gaS+vTMnh6AB3lGkwRCeGY0WcGToya43kDNGZodOSBxwd4v/NiNELOvXyvyw30TGT/cpG5+xfE85C56zxLxvE0QP+c5ve0Iu3Hws3QC8Gt4s3RU+miozrK/OG6M2Q/WOOHs3ZNwM9MnR3KPaEghdr7hJHG08oeWjDWWOBfgNhobpr6y+d1l18NEHPJiNFKnR80a7QuxWTJujdhFXeQUC+Ubsg4Cr+IDr9s7BAwGLMAdDzBSs5bA2g51uQtGYuTSCXmTRLZ7IlSCwZBwnODJAw2AwkZswCCYsNQGJAFohu6WY0F+yMGTS3IINxmkCcLWmWbslMkDCZCxIuW4PEmjkg4VA9nJA9bpE9QJI9EpM95Ou/tmR5hh/iGFpWOi9i6aaWBOHmSwpkzfR8biYZWtk6r5aZuJEBhbhRKF8tJVMRyE/TrcjTNBdpmvoyULr9EobNJNU68lwoAsVRFIkgigJRTWIZCMhDKQhCKUe7hd6BxhZJkogiSQpRTbCFdPR2lcNBjt4Rrbj2IZpfFCIsilAUhY8vxwMqYYjKQRHI1j50istShGUZirL8G+gaVC4XOV7bAxmax2iZL4m97++FL2X1t5/S+Vx/ZGgz1zwY3FUZ4ImPqPIhvGrMAXzua563lwrlwaDmLlXbnaKyPUY+gNtA5wAtbN3D288yEtdDQ4io3KD2nQx5W6Cp9nF0GOU7ke++BEV+OOLkNS4XOQZXzzupjqPVB+xbwBcnoN6bj1J+kfqNw0GOx8D3U/UBu7pkUAc6iaQJJJ2S2vksx32gKBloF0ES74T8ut0A5xy1OJDkdSRFyiKIfub5l+Lz4pXZzf6FaGXfVag6JbsyEuEWp7z6+N4Nv8qNI9qY95XeYhGci6SZH4MTGvsgCDcapTf9YuIW/0jvKCZSlUepCr5UJWyqojxVmwFV4wRRKwhVcwtVuw5RAxJRSxVRkxhd2xt9Ix99ayJ9syVZ++gfIU8rRCkVqBAAAAAASUVORK5CYII=);
-    background-size: 52px 52px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+.one-day {
+    width: 100%;
+    height: 700rpx;
 }
 
-image>div {
-    background-size: 100% 100%;
+
+
+.matchList {
+    margin-top: 35rpx;
 }
 
-.match-info-list {
-    height: 1px;
-    margin-top: 51px;
+.matchList .gameDate {
+    font-size: 25rpx;
 }
 
-.match-list {
-    position: relative;
-    color: #adb4be;
-    background-color: #fff;
-    font-size: 14px;
-    line-height: 40px;
+.weui-cells {
+    margin-top: 10rpx;
 }
 
-.no-match {
-    margin-top: 80px;
-    text-align: center;
-    color: #adb4be;
-    font-size: 16px;
+.weui-cell {
+    border: 1px solid #fff;
 }
 
-.loading {
-    text-align: center;
-    color: #93989f;
-    background-color: #f3f3f7;
-    font-size: 26rpx;
-    line-height: 50px;
+.weui-cell__hd {
+    width: 146rpx;
+    overflow: hidden;
+}
+
+.weui-cell__hd text {
+    display: block;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    margin-bottom: 15rpx;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    font-size: 24rpx;
+}
+
+.weui-cell__hd text:nth-child(2) {
+    font-size: 20rpx;
+    color: #898989;
+}
+
+.weui-cell__bd {
+    margin-left: 30rpx;
+}
+
+.weui-cell__bd view {
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__bd view:nth-child(1) {
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__bd image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.weui-cell__bd span {
+    font-size: 28rpx;
+    padding-left: 20rpx;
+}
+
+.weui-cell__ft {
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .ft_left {
+    margin-right: 50rpx;
+}
+
+.weui-cell__ft .gameScore {
+    display: block;
+}
+
+.weui-cell__ft .scoreM{
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__ft .gameLive view{
+    display: inline;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .gameLive .livePic{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 5rpx;
+}
+
+.weui-cell__ft .gameLive span {
+    font-size: 22rpx;
+}
+
+.noMatches {
+    font-size: 32rpx;
+    color: #9c9c9c;
+    display: flex;
+    justify-content: center;
+    padding-top: 150rpx;
 }
