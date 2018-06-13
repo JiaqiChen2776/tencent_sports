@@ -1,0 +1,295 @@
+/* pages/nbaMatches/nbaMatches.wxss */
+page {
+    background-color: #f3f3f7;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.info_bd {
+    flex:1;
+}
+
+swiper {
+    height: 100%;
+}
+
+.info_hd {
+    height: 86rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 65rpx;
+    background-color: #0061b8;
+    box-sizing: border-box;
+
+}
+
+.info_hd .nbaSort {
+    font-size: 26rpx;
+    color: #fff;
+    line-height: 48px;
+    width: 100rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.headerMenu {
+    height: 100%;
+}
+
+.on {
+    position: relative;
+}
+
+.on:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+    width: 100rpx;
+    height: 6rpx;
+}
+
+.gameOrder {
+    margin-top: 30rpx;
+}
+
+.gameOrder .gameDate {
+    font-size: 25rpx;
+    padding-left: 25rpx;
+}
+
+.weui-cells {
+    margin-top: 10rpx;
+}
+
+.weui-cell {
+    border: 1px solid #fff;
+}
+
+.weui-cell__hd {
+    text-align: center;
+}
+
+.weui-cell__hd text {
+    display: block;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    margin-bottom: 15rpx;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    font-size: 24rpx;
+}
+
+.weui-cell__hd text:nth-child(2) {
+    font-size: 20rpx;
+    color: #898989;
+}
+
+.weui-cell__bd {
+    margin-left: 50rpx;
+}
+
+.weui-cell__bd view {
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__bd view:nth-child(1) {
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__bd image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.weui-cell__bd span {
+    font-size: 28rpx;
+    padding-left: 20rpx;
+}
+
+.weui-cell__ft {
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .ft_left {
+    margin-right: 50rpx;
+}
+
+.weui-cell__ft .gameScore {
+    display: block;
+}
+
+.weui-cell__ft .scoreM{
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__ft .gameLive view{
+    display: inline;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .gameLive .livePic{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 5rpx;
+}
+
+.weui-cell__ft .gameLive span {
+    font-size: 22rpx;
+}
+
+
+
+.rankItem, .teamInfo {
+    width: 306rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10rpx;
+}
+
+.nbaRankBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.rank_hd {
+    height: 66rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22rpx;
+    color: #898989;
+    background-color: #f3f3f7;
+    padding: 0 35rpx;
+    /* margin: 33rpx 0; */
+}
+
+.rank_bd {
+    flex:1;
+    background: #fff;
+}
+
+.rank_bd .rank_info {
+    height: 90rpx;
+    border-top: 1px solid #ccc;
+    padding: 0 25rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rank_bd .rankTeam {
+    display: flex;
+    align-items: center;
+}
+
+.rank_bd .rankTeam .teamPic {
+    width: 45rpx;
+    height: 45rpx;
+    margin-left: 15rpx;
+}
+
+.rankNum {
+    font-size: 24rpx;
+    width: 30rpx;
+    text-align: center;
+}
+
+.rank_bd .teamName {
+    font-size: 28rpx;
+    margin-left: 15rpx;
+}
+
+.teamInfo {
+    font-size: 24rpx;
+    margin-right: 20rpx;
+}
+
+.teamInfo text:nth-child(3) {
+    width: 30rpx;
+    text-align: center;
+}
+
+.player_hd {
+    height: 85rpx;
+    background-color: #0061b8;
+    border: 1px solid #244ac0;
+    color: #adbef3;
+    font-size: 24rpx;
+    padding: 0 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.player_hd .ps_on {
+    color: #fff;
+}
+
+.playerRank {
+    height: 1041rpx;
+}
+
+.rankInfo {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.rankInfo .playerPic {
+    width: 70rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-left: 25rpx;
+}
+
+.rankInfo .rank_hd {
+    height: 104rpx;
+    background-color: #fff;
+}
+
+.rankNum_red {
+    color: red;
+}
+
+.rank_hd .playerInfo {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15rpx;
+}
+
+.playerInfo text:nth-child(1) {
+    font-size: 28rpx;
+    color: #000;
+}
+
+.playerInfo text:nth-child(2) {
+    
+}
+
+.rank_bd .rankScore {
+    float: right;
+    padding-right: 30rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+
+
+

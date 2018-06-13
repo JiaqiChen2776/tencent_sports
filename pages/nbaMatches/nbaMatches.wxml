@@ -1,0 +1,160 @@
+<!--pages/nbaMatches/nbaMatches.wxml-->
+<view class="container">
+    <view class="info_hd">
+        <view class="headerMenu {{curIndex===index?'on':''}}" 
+            wx:for="{{nbaMenu}}" wx:key="item.id" 
+            data-id="{{item.id}}" 
+            data-index="{{index}}" 
+            bindtap="switchSort">
+            <view class="nbaSort">{{item.nbaSort}}</view>
+        </view>
+    </view>
+    <view class="info_bd">
+        <swiper current="{{curIndex}}" bindchange="bindswiper">
+            <swiper-item class="nbaMatches">
+                <view class="gameOrder" wx:for="{{orderList}}" wx:key="{{orderList.id}}">
+                    <text class="gameDate">{{item.gameDate}}</text>
+                    <view class="weui-cells">
+                        <navigator url="/pages/order/order" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd">
+                                <text>{{item.gameTime}}</text>
+                                <text>{{item.gameName}}</text>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view class="team_1">
+                                    <image src="{{item.team_1_pic}}"></image><span>{{item.team_1}}</span>
+                                </view>
+                                <view class="team_2">
+                                    <image src="{{item.team_2_pic}}"></image><span>{{item.team_2}}</span>
+                                </view>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <view class="ft_left">
+                                    <view wx:if="{{item.isStart}}">
+                                        <text class="gameScore scoreM">{{item.team_1_score}}</text>
+                                        <text class="gameScore">{{item.team_2_score}}</text>
+                                    </view>
+                                    <view wx:else>
+                                        <text class="gameScore scoreM">-</text>
+                                        <text class="gameScore">-</text>
+                                    </view>
+                                </view>
+                                <view class="ft_right">
+                                    <view wx:if="{{item.gameLive}}" class="gameLive">
+                                        <view wx:if="{{v_live}}">
+                                            <image class="livePic" src="{{vLive_pic}}"/>
+                                            <span>{{vLive_text}}</span>
+                                        </view>
+                                        <view wx:else>
+                                            <image class="livePic" src="{{pLive_pic}}"/>
+                                            <span>{{pLive_text}}</span>
+                                        </view>
+                                    </view>
+                                    <view wx:else class="gameLive">
+                                        <span>未开始</span>
+                                    </view>
+                                </view>
+                                
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </swiper-item>
+            <swiper-item class="nbaRankBox">
+                <scroll-view scroll-y="true" style="height:100%;">
+                    <view class="westRankBox">
+                        <view class="rank_hd">
+                            <text>西部联盟</text>
+                            <view class="rankItem">
+                                <text>胜-负</text>
+                                <text>胜率</text>
+                                <text>胜差</text>
+                            </view>
+                        </view>
+                        <view class="rank_bd">
+                            <view class="rank_info" wx:for="{{nbaTeamRank.westRank}}" wx:key="index" wx:for-item="westRank">
+                                <view class="rankTeam">
+                                    <text class="rankNum {{index==1||index==2||index==3||index==4||index==5||index==6||index==7||index==0?'rankNum_red':''}}">{{westRank.rankNum}}</text>
+                                    <image class="teamPic" src="{{westRank.teamPic}}"></image>
+                                    <text class="teamName">{{westRank.teamName}}</text>
+                                </view>
+                                <view class="teamInfo">
+                                    <text>{{westRank.v_f}}</text>
+                                    <text>{{westRank.v_rate}}</text>
+                                    <text>{{westRank.v_margin}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="eastRankBox">
+                        <view class="rank_hd">
+                            <text>东部联盟</text>
+                            <view class="rankItem">
+                                <text>胜-负</text>
+                                <text>胜率</text>
+                                <text>胜差</text>
+                            </view>
+                        </view>
+                        <view class="rank_bd">
+                            <view class="rank_info" wx:for="{{nbaTeamRank.eastRank}}" wx:key="index" wx:for-item="eastRank">
+                                <view class="rankTeam">
+                                    <text class="rankNum {{index==1||index==2||index==3||index==4||index==5||index==6||index==7||index==0?'rankNum_red':''}}">{{eastRank.rankNum}}</text>
+                                    <image class="teamPic" src="{{eastRank.teamPic}}"></image>
+                                    <text class="teamName">{{eastRank.teamName}}</text>
+                                </view>
+                                <view class="teamInfo">
+                                    <text>{{eastRank.v_f}}</text>
+                                    <text>{{eastRank.v_rate}}</text>
+                                    <text>{{eastRank.v_margin}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>            
+                </scroll-view>
+            </swiper-item>
+            <swiper-item style="overflow: hidden;" class="rankTest">
+                <view class="player_hd">
+                    <view class="sortRank {{playerSortIndex===index?'ps_on':''}}"
+                    wx:for="{{playerSortMenu}}" wx:key="item.id"
+                    data-id="{{item.id}}"
+                    data-index="{{index}}"
+                    bindtap="switchPlayerSort">
+                        <text>{{item.playerSort}}</text>
+                    </view>
+                </view>
+                <!-- <scroll-view class="player_bd" scroll-y="true" style="width: 100%;height: 100%;padding-top：85rpx;"> -->
+                    <!-- <view class="playerRank" wx:for="{{nbaPlayerRank}}" wx:key="index" style="width: 100%;height: 100%;">
+                        <view class="rankInfo" data-index="index" wx:for="{{item}}" wx:for-item="playRank">
+                            <view class="rank_hd">
+                                <text class="rankNum {{index==0||index==1||index==2?'rankNum_red':''}}">{{playRank.rankNum}}</text>
+                                <image class="playerPic" src="{{playRank.playerThumb}}"></image>
+                                <view class="playerInfo">
+                                    <text class="playerName">{{playRank.playerName}}</text>
+                                    <text class="playerTeam">{{playRank.team}}</text>
+                                </view>
+                            </view>
+                            <view class="rank_bd">
+                                <text class="rankScore">{{playRank.score}}</text>
+                            </view>
+                        </view>
+                    </view>  -->
+                <!-- </scroll-view>  -->
+                <scroll-view class="player_bd" scroll-y style="width: 100%;">
+                    <view class="player_rank" wx:for="{{playerRank}}" wx:for-item="playerRank" wx:key="{{playerRank.id}}">
+                        <view class="rank_hd">
+                            <text class="rankNum {{index==0||index==1||index==2?'rankNum_red':''}}">{{playRank.rankNum}}</text>
+                            <image class="playerPic" src="{{playRank.playerThumb}}"></image>
+                            <view class="playerInfo">
+                                <text class="playerName">{{playRank.playerName}}</text>
+                                <text class="playerTeam">{{playRank.team}}</text>
+                            </view>
+                        </view>
+                        <view class="rank_bd">
+                            <text class="rankScore">{{playRank.score}}</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
