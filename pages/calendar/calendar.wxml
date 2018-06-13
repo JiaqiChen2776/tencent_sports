@@ -1,5 +1,5 @@
 <!--pages/calendar/calendar.wxml-->
-<view class='wrap'>  
+<!-- <view class='wrap'>  
     <view>  
         <view class='date-show'>  
             <view class='lt-arrow' bindtap='lastMonth'>  
@@ -22,5 +22,46 @@
             <view class='date-weight'>{{item.weight}}</view>  
         </view>  
     </view>  
-</view>  
+    <view bindtap="returnToday" class="return-today">
+        返回今天
+    </view>
+</view>   -->
+
+<view class="selected_date">
+    <view bindtap="preMonth">
+      <image class="select_icon" src="../../images/wc/pre.png"></image>
+    </view>
+    <view class="text_center">{{curYear+'年'+curMonth+'月'}}</view>
+    <view style="text-align:right;" bindtap="nextMonth">
+      <image class="select_icon" src="../../images/wc/next.png"></image>
+    </view>
+</view>
+<view class="calendar_panel">
+    <view class="week_box greyBg">
+        <view class="weekday_label">日</view>
+        <view class="weekday_label">一</view>
+        <view class="weekday_label">二</view>
+        <view class="weekday_label">三</view>
+        <view class="weekday_label">四</view>
+        <view class="weekday_label">五</view>
+        <view class="weekday_label">六</view>
+    </view>
+    <view class="calendar_box" 
+        wx:for="{{dateList}}" 
+        wx:for-item="week" 
+        wx:key="{{index}}" 
+        style="{{index==0?'justify-content: flex-end;':''}}">
+        <view wx:for="{{week}}" data-date="{{item}}" 
+            class="weekday_label {{item.value==selectedDate?'active_label':''}}" bindtap="selectDate">
+            <view class="date">
+                <text>{{item.date}}</text>  
+            </view>
+            <view class="gameNumBox">
+                <text class="gameNum">{{item.gameNum}}</text>
+                <text>场比赛</text>
+            </view> 
+        </view>
+    </view>
+</view>
+<view class="backtoday" bindtap="backtoday">返回今天</view>
 

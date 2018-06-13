@@ -1,102 +1,117 @@
-// pages/calendar/calendar.js
+// pages/others/this.calendar/this.calendar.js
 Page({
+    data: {
+      selectedDate: '',//选中的几月几号
+      selectedWeek: '',//选中的星期几
+      curYear: 2017,//当前年份
+      curMonth: 0,//当前月份
+      daysCountArr: [// 保存各个月份的长度，平年
+        31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+      ],
+      weekArr: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+      dateList: []
+    },
 
-  /**
-   * 页面的初始数据
-   */
-  data: {  
-    year: 0,  
-    month: 0,  
-    date: ['日', '一', '二', '三', '四', '五', '六'],  
-    dateArr: [],  
-    isToday: 0,  
-    isTodayWeek: false,  
-    todayIndex: 0  
-},  
-onLoad: function () {  
-    let now = new Date();  
-    let year = now.getFullYear();  
-    let month = now.getMonth() + 1;  
-    this.dateInit();  
-    this.setData({  
-        year: year,  
-        month: month,  
-        isToday: '' + year + month + now.getDate()  
-    })  
-},  
-dateInit: function(setYear,setMonth){  
-    //全部时间的月份都是按0~11基准，显示月份才+1  
-    let dateArr = [];                       //需要遍历的日历数组数据  
-    let arrLen = 0;                         //dateArr的数组长度  
-    let now = setYear ? new Date(setYear,setMonth) : new Date();  
-    let year = setYear || now.getFullYear();  
-    let nextYear = 0;  
-    let month = setMonth || now.getMonth();                 //没有+1方便后面计算当月总天数  
-    let nextMonth = (month + 1) > 11 ? 1 : (month + 1);        
-    let startWeek = new Date( year+','+(month + 1)+','+1).getDay();                         //目标月1号对应的星期  
-    let dayNums = new Date(year,nextMonth,0).getDate();             //获取目标月有多少天  
-    let obj = {};         
-    let num = 0;  
-      
-    if(month + 1 > 11){  
-        nextYear = year + 1;  
-        dayNums = new Date(nextYear,nextMonth,0).getDate();  
-    }  
-    arrLen = startWeek + dayNums;  
-    for(let i = 0; i < arrLen; i++){  
-        if(i >= startWeek){  
-            num = i - startWeek + 1;  
-            obj = {  
-                isToday: '' + year + (month + 1) + num,  
-                dateNum: num,  
-                weight: 5  
-            }  
-        }else{  
-            obj = {};  
-        }  
-        dateArr[i] = obj;  
-    }  
-    this.setData({  
-        dateArr: dateArr  
-    })  
+    backtoday(e) {
+      wx.navigateBack({
+        delta: 1, // 回退前 delta(默认为1) 页面
+      })
+    },
 
-    let nowDate = new Date();  
-    let nowYear = nowDate.getFullYear();  
-    let nowMonth = nowDate.getMonth() + 1;  
-    let nowWeek = nowDate.getDay();  
-    let getYear = setYear || nowYear;  
-    let getMonth = setMonth >= 0 ? (setMonth + 1) : nowMonth;  
+    onLoad: function (options) {
+      // 页面初始化 options为页面跳转所带来的参数
+    },
+    onReady: function () {
+      // 页面渲染完成
+    },
+  
+    onShow: function () {
+      var today = new Date();//当前时间  
+      var y = today.getFullYear();//年  
+      var mon = today.getMonth() + 1;//月  
+      var d = today.getDate();//日  
+      var i = today.getDay();//星期  
+      this.setData({
+        curYear: y,
+        curMonth: mon,
+        selectedDate: y + '-' + mon + '-' + d,
+        selectedWeek: this.data.weekArr[i]
+      });
+      this.getDateList(y, mon - 1);
+    },
+    getDateList: function (y, mon) {
+      var vm = this;
+      //如果是闰年，则2月是29日
+      var daysCountArr = this.data.daysCountArr;
+      if (y % 4 == 0 && y % 100 != 0) {
+        this.data.daysCountArr[1] = 29;
+        this.setData({
+          daysCountArr: daysCountArr
+        });
+      }
+      //第几个月；下标从0开始实际月份还要再+1  
+      var dateList = [];
+      // console.log('本月', vm.data.daysCountArr[mon], '天');
+      dateList[0] = [];  //dateList 为二维数组
+      var weekIndex = 0;//第几个星期
+      for (var i = 0; i < vm.data.daysCountArr[mon]; i++) {
+        // getDay() 方法可返回一周（0~6）的某一天的数字
+        var week = new Date(y + '-' + (mon + 1) + '-' + (i + 1)).getDay();
+        
+        dateList[weekIndex].push({
+          value: y + '-' + (mon + 1) + '-' + (i + 1),
+          date: i + 1,
+          week: week,
+          gameNum: 10
+        });
+        console.log(week);
 
-    if (nowYear == getYear && nowMonth == getMonth){  
-        this.setData({  
-            isTodayWeek: true,  
-            todayIndex: nowWeek  
-        })  
-    }else{  
-        this.setData({  
-            isTodayWeek: false,  
-            todayIndex: -1  
-        })  
-    }  
-},  
-lastMonth: function(){  
-    //全部时间的月份都是按0~11基准，显示月份才+1  
-    let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;  
-    let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;  
-    this.setData({  
-        year: year,  
-        month: (month + 1)  
-    })  
-    this.dateInit(year,month);  
-},  
-nextMonth: function(){  
-    //全部时间的月份都是按0~11基准，显示月份才+1  
-    let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;  
-    let month = this.data.month > 11 ? 0 : this.data.month;  
-    this.setData({  
-        year: year,  
-        month: (month + 1)  
-    })  
-    this.dateInit(year, month);  
-}  
-})
+        if (week == 0) {
+          weekIndex++;
+          dateList[weekIndex] = [];
+        }
+      }
+      console.log('本月日期', dateList);
+      vm.setData({
+        dateList: dateList
+      });
+    },
+    selectDate: function (e) {
+      var vm = this;
+      console.log('选中', e.currentTarget.dataset.date.value);
+      vm.setData({
+        selectedDate: e.currentTarget.dataset.date.value,
+        selectedWeek: vm.data.weekArr[e.currentTarget.dataset.date.week]
+      });
+    },
+    preMonth: function () {
+      // 上个月
+      var vm = this;
+      var curYear = vm.data.curYear;
+      var curMonth = vm.data.curMonth;
+      curYear = curMonth - 1 ? curYear : curYear - 1;
+      curMonth = curMonth - 1 ? curMonth - 1 : 12;
+      // console.log('上个月', curYear, curMonth);
+      vm.setData({
+        curYear: curYear,
+        curMonth: curMonth
+      });
+  
+      vm.getDateList(curYear, curMonth - 1);
+    },
+    nextMonth: function () {
+      // 下个月
+      var vm = this;
+      var curYear = vm.data.curYear;
+      var curMonth = vm.data.curMonth;
+      curYear = curMonth + 1 == 13 ? curYear + 1 : curYear;
+      curMonth = curMonth + 1 == 13 ? 1 : curMonth + 1;
+      // console.log('下个月', curYear, curMonth);
+      vm.setData({
+        curYear: curYear,
+        curMonth: curMonth
+      });
+  
+      vm.getDateList(curYear, curMonth - 1);
+    }
+  })

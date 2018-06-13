@@ -1,102 +1,107 @@
-/* pages/calendar/calendar.wxss */
-.date-show{  
-    position: relative;  
-    width: 250rpx;  
-    font-family: PingFang-SC-Regular;  
-    font-size: 40rpx;  
-    color: #282828;  
-    text-align: center;  
-    margin: 59rpx auto 10rpx;  
-}  
-.lt-arrow,.rt-arrow{  
-    position: absolute;  
-    top: 1rpx;  
-    width: 60rpx;  
-    height: 60rpx;  
-}  
-.lt-arrow image,.rt-arrow image{  
-    width: 30rpx;  
-    height: 26rpx;  
-}  
-.lt-arrow{  
-    left: -110rpx;  
-    transform: rotate(180deg);  
-}  
-.rt-arrow{  
-    right: -100rpx;  
-}  
-.header{  
-    font-size: 0;  
-    padding: 0 24rpx;  
-}  
-.header>view{  
-    display: inline-block;  
-    width: 14.285%;  
-    color: #333;  
-    font-size: 30rpx;  
-    text-align: center;  
-    border-bottom: 1px solid #D0D0D0;  
-    padding: 39rpx 0;  
-}  
-.weekMark{  
-    position: relative;  
-}  
-.weekMark view{  
-    position: absolute;  
-    bottom: 0;  
-    left: 0;  
-    width: 100%;  
-    border-bottom: 1px solid #22A7F6;  
-}  
-.date-box{  
-    font-size: 0;  
-    padding: 10rpx 0;  
-}  
-.date-box>view{  
-    position: relative;  
-    display: inline-block;  
-    width: 14.285%;  
-    color: #020202;  
-    font-size: 40rpx;  
-    text-align: center;  
-    vertical-align: middle;  
-    margin: 15rpx 0;  
-}  
-.date-head{  
-    height: 60rpx;  
-    line-height: 60rpx;  
-    font-size: 26rpx;  
-}  
-.nowDay .date-head{  
-    width: 60rpx;  
-    border-radius: 50%;  
-    text-align: center;  
-    color: #fff;  
-    background-color: #22A7F6;  
-    margin: 0 auto;  
-}  
-.date-weight{  
-    font-size: 22rpx;  
-    padding: 15rpx 0;  
-}  
-.nowDay .date-weight{  
-    color: #22A7F6;  
-}  
-.one{  
-    position: absolute;  
-    bottom: 0;  
-    right: 5rpx;  
-    width: 20rpx;  
-    height: 20rpx;  
-    border-radius: 50%;  
-    background-color: red;  
-}  
-.two{  
-    position: absolute;  
-    bottom: 30rpx;  
-    right: 5rpx;  
-    width: 20rpx;  
-    height: 20rpx;  
-    border-radius: 50%;  
-    background-color: blue;  
-}  
+/* pages/others/calendar/calendar.wxss */
+page {
+  background: #f3f3f7;
+}
+.selected_date {
+    padding: 24rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #d6d7dc;
+    color: #576b95;
+  }
+
+  .selected_date .text_center {
+      font-size: 30rpx;
+      text-align: center;
+  }
+  
+  .selected_date>view {
+    width: 33.3%;
+    float: left;
+  }
+  
+  .calendar_panel {
+    width: 100%;
+    /* height: 600rpx; */
+  }
+
+.week_box {
+      width: 100%;
+      height: 76rpx;
+      background: #f3f3f7;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      color: #b6b6b6;
+  }
+  
+  .calendar_box {
+    width: 100%;
+    height: 152rpx;
+    background: #fff;
+    overflow: hidden;
+    /* border-bottom: 1rpx solid #ececec; */
+    display: flex;
+  }
+  
+  .weekday_label {
+    width: 14.28%;
+    float: left;
+    text-align: center;
+    font-size: 26rpx;
+    /* padding: 10rpx; */
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    border: 1px solid #f3f3f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .weekday_label .date {
+    width: 100%;
+  }
+  .weekday_label .date text {
+      float: right;
+      font-size: 20rpx;
+      color: #b6b6b6;
+  }
+
+  .gameNumBox text {
+      display: block;
+      color: #576b95
+  }
+  
+  .gameNumBox text:nth-child(1) {
+      font-size: 35rpx;
+  }
+
+  .gameNumBox text:nth-child(2) {
+    font-size: 18rpx;
+}
+  
+  .select_icon {
+    width: 30rpx;
+    height: 30rpx;
+  }
+  
+  .active_label {
+    /* color: #2b58e0; */
+    border: 1px solid #2b58e0;
+  }
+  
+  .show_box {
+    padding: 20rpx;
+    font-size: 26rpx;
+  }
+  
+.backtoday {
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 34rpx;
+  color: #576b95;
+  background: #fff;
+}
