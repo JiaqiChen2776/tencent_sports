@@ -1,0 +1,147 @@
+/* pages/matchDetail/matchDetail.wxss */
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #f3f3f7;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.match_hd {
+    background-color: #fff;
+    height: 350rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.match_desc {
+    padding: 50rpx 64rpx;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.teamBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamBox .teamPic {
+    width: 85rpx;
+    height: 85rpx;
+}
+
+.teamBox text {
+    font-size: 30rpx;
+    margin-top: 8rpx;
+}
+
+.pk_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pk_info text{
+    font-size: 26rpx;
+    color: #adb4be;
+}
+
+.gameDateTime .gameTime {
+    margin: 0 8rpx;
+}
+
+.pk_info .gameDateTime {
+    margin-bottom: 18rpx;
+}
+
+.orderBox {
+    margin-bottom: 16rpx;
+}
+
+.ordered {
+    width: 180rpx;
+    height: 58rpx;
+    background-color: #f3f3f7;
+    color: #000;
+    font-size: 26rpx;
+    border-radius: 29rpx;
+    display: flex;
+    align-items: center;justify-content: center;
+}
+
+.noOrder {
+    width: 180rpx;
+    height: 58rpx;
+    background-color: #448aff;
+    font-size: 26rpx;
+    color: #fff;
+    border-radius: 29rpx;
+    display: flex;
+    align-items: center;justify-content: center;
+}
+
+.orderBox image, .ordered image {
+    width: 30rpx;
+    height: 26rpx;
+    margin-right: 8rpx;
+}
+
+.matchBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.matchBar span {
+    width: 375rpx;
+    text-align: center;
+    font-size: 32rpx;
+}
+
+.match_bd {
+    margin-top: 20rpx;
+    background-color: #fff;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 65rpx;
+}
+
+/* .barOn {
+    border-bottom: 2px solid #2b58e0;
+} */
+
+.match_info.barOn, .match_news.barOn {
+    position: relative;
+}
+
+.match_info.barOn:after, .match_news.barOn:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 375rpx;
+    height: 5rpx;
+    background-color: #2b58e0;
+}
+
+.matchBarInfo view {
+    display: none;
+}
+
+.matchBarInfo view.barInfoOn {
+    display: block;
+}
+
+.matchBarInfo text {
+    font-size: 35rpx;
+    color: #adb4be;
+    
+}

@@ -1,2 +1,71 @@
-<!--pages/hot/hot.wxml-->
-<text>pages/hot/hot.wxml</text>
+<view class="content">
+    <view class="date-nav">
+        <view bindtap="preDay" class="icon-base pre-day">
+            &gt;
+        </view>
+        <navigator class="cur-day" url="/pages/calendar/calendar?date={{curday}}&type=num&from=index">
+            {{curDate}}
+            <view class="calendar-icon"></view>
+        </navigator>
+        <view bindtap="nextDay" class="icon-base next-day">
+            &lt;
+        </view>
+    </view>
+    <!-- indicator-dots  -->
+    <swiper bindchange="changeMatch" circular="false" class="one-day" current="{{swiperCurIndex}}">
+        <swiper-item wx:for="{{dayList}}" wx:for-index="index">
+            <view wx:if="{{item.gameDate==curDate}}">
+                <view class="matchList" wx:for="{{item.gameList}}" wx:for-item="match" wx:key="{{match.id}}">
+                    <view class="weui-cells">
+                        <navigator url="/pages/order/order" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd">
+                                <text>{{match.gameTime}}</text>
+                                <text>{{match.gameName}}</text>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view class="team_1">
+                                    <image src="{{match.team_1_pic}}"></image><span>{{match.team_1}}</span>
+                                </view>
+                                <view class="team_2">
+                                    <image src="{{match.team_2_pic}}"></image><span>{{match.team_2}}</span>
+                                </view>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <view class="ft_left">
+                                    <view wx:if="{{match.isStart}}">
+                                        <text class="gameScore scoreM">{{match.team_1_score}}</text>
+                                        <text class="gameScore">{{match.team_2_score}}</text>
+                                    </view>
+                                    <view wx:else>
+                                        <text class="gameScore scoreM">-</text>
+                                        <text class="gameScore">-</text>
+                                    </view>
+                                </view>
+                                <view class="ft_right">
+                                    <view wx:if="{{match.gameLive}}" class="gameLive">
+                                        <view wx:if="{{v_live}}">
+                                            <image class="livePic" src="{{vLive_pic}}"/>
+                                            <span>{{vLive_text}}</span>
+                                        </view>
+                                        <view wx:else>
+                                            <image class="livePic" src="{{pLive_pic}}"/>
+                                            <span>{{pLive_text}}</span>
+                                        </view>
+                                    </view>
+                                    <view wx:else class="gameLive">
+                                        <span>未开始</span>
+                                    </view>
+                                </view>
+                                
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+            <view wx:else class="noMatches">
+                本日暂无比赛
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
+

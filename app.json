@@ -1,13 +1,21 @@
 {
   "pages": [
-    "pages/user/user",
-    "pages/order/order",
+    "pages/hot/hot",
+    "pages/calendar/calendar",
     
     "pages/index/index",
-    "pages/game/game",
-    "pages/hot/hot",
-    "pages/logs/logs"
+    "pages/nbaMatches/nbaMatches",
+    "pages/wcMatches/wcMatches",
+    "pages/order/order",
     
+    "pages/matchDetail/matchDetail",
+    "pages/articleDetail/articleDetail",
+    
+    "pages/game/game",
+    "pages/user/user",
+    "pages/logs/logs",
+    "pages/cbaMatches/cbaMatches",
+    "pages/matchesNoBar/matchesNoBar"
   ],
   "window": {
     "backgroundTextStyle": "light",

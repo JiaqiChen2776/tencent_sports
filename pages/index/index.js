@@ -4,51 +4,45 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    days:0,
+    gameList: [],
+    iconList: [
+      {
+        id: '0',
+        linksPic: '../../images/wc/links_matches.png',
+        linksText: '赛程'
+      },
+      {
+        id: '3',
+        linksPic: '../../images/wc/links_goals.png',
+        linksText: '射手榜'
+      },
+      {
+        id: '1',
+        linksPic: '../../images/wc/links_table.png',
+        linksText: '积分榜'
+      },
+      {
+        id: '',
+        linksPic: '../../images/wc/links_video.png',
+        linksText: '视频'
+      }
+    ],
+    articleList: null
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  onLoad: function (options) {
+    var s1 = '2018-6-14';
+    s1 = new Date(s1.replace(/-/g, "/"));
+    var s2 = new Date();
+    var days = s2.getTime() -s1.getTime();
+    var time = parseInt(days / (1000*60*60*24));
+    console.log(time+1);
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      days: time+1,
+      articleList: app.globalData.articleList,
+      gameList: app.globalData.gameList
     })
+    console.log(this.data.gameList);
   }
 })

@@ -1,0 +1,125 @@
+<!--pages/wcMatches/wcMatches.wxml-->
+<view class="container">
+    <view class="header_bar" bindtap="switchBar">
+        <span class="{{selected=='0'?'barOn':''}}"data-id='0'>赛程</span>
+        <span class="{{selected=='1'?'barOn':''}}" data-id='1'>积分</span>
+        <span class="{{selected=='2'?'barOn':''}}" data-id='2'>淘汰赛</span>
+        <span class="{{selected=='3'?'barOn':''}}" data-id='3'>射手</span>
+    </view>
+    <view class="wc_bd">
+        <view class="wcMatches" wx:if="{{selected=='0'}}">
+            <view class="SortSwitchBar" bindtap="bindSortBar">
+                <span class="{{ftBarSelected=='0'?'sortBarOn':''}}" data-index='0'>全部</span>
+                <span class="{{ftBarSelected=='1'?'sortBarOn':''}}" data-index='1'>小组</span>
+                <span class="{{ftBarSelected=='2'?'sortBarOn':''}}" data-index='2'>淘汰</span>
+            </view>
+            <view class="MatchesBox">
+                <view class="gameOrder"wx:if="{{ftBarSelected=='0'}}" wx:for="{{wcMatchesList}}" wx:key="{{wcMatchesList.id}}">
+                    <text class="gameDate">{{item.gameDate}}</text>
+                    <view class="weui-cells">
+                        <navigator url="/pages/order/order" wx:for="{{item.gameList}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd">
+                                <text>{{item.gameTime}}</text>
+                                <text>{{item.gameName}}</text>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view class="team_1">
+                                    <image src="{{item.team_1_pic}}"></image><span>{{item.team_1}}</span>
+                                </view>
+                                <view class="team_2">
+                                    <image src="{{item.team_2_pic}}"></image><span>{{item.team_2}}</span>
+                                </view>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <view class="ft_left">
+                                    <view wx:if="{{item.isStart}}">
+                                        <text class="gameScore scoreM">{{item.team_1_score}}</text>
+                                        <text class="gameScore">{{item.team_2_score}}</text>
+                                    </view>
+                                    <view wx:else>
+                                        <text class="gameScore scoreM">-</text>
+                                        <text class="gameScore">-</text>
+                                    </view>
+                                </view>
+                                <view class="ft_right">
+                                    <view wx:if="{{item.gameLive}}" class="gameLive">
+                                        <view wx:if="{{v_live}}">
+                                            <image class="livePic" src="{{vLive_pic}}"/>
+                                            <span>{{vLive_text}}</span>
+                                        </view>
+                                        <view wx:else>
+                                            <image class="livePic" src="{{pLive_pic}}"/>
+                                            <span>{{pLive_text}}</span>
+                                        </view>
+                                    </view>
+                                    <view wx:else class="gameLive">
+                                        <span>未开始</span>
+                                    </view>
+                                </view>
+                                
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+                <view class="groupMatches" wx:if="{{ftBarSelected=='1'}}">
+                    <view class="groupMatch_hd">A组赛程</view>
+                    <view class="groupMatch_bd">
+                        <view wx:for="123456">小组赛程</view>
+                    </view>
+                </view>
+                <view class="knockoutBox" wx:if="{{ftBarSelected=='2'}}">
+                    <view class="groupMatch_hd">6月30日 周六</view>
+                    <view class="groupMatch_bd">
+                        <view>淘汰赛</view>
+                    </view>
+                    <view class="groupMatch_hd">7月1日 周日</view>
+                    <view class="groupMatch_bd">
+                        <view wx:for="12">淘汰赛</view>
+                    </view>
+                    <view class="groupMatch_hd">7月2日 周一</view>
+                    <view class="groupMatch_bd">
+                        <view wx:for="12">淘汰赛</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="wc_score" wx:if="{{selected=='1'}}">
+            <!-- <span>hahahha</span> -->
+            <view class="groupBox" wx:for="{{wcScoreList}}" wx:dey="index">
+                <view class="group_hd">
+                    <span class="groupName">{{item.groupName}}</span>
+                    <view class="scoreInfo">
+                        <span>胜</span>
+                        <span>平</span>
+                        <span>负</span>
+                        <span>进/失</span>
+                        <span>积分</span>
+                    </view>
+                </view>
+                <view class="group_bd">
+                    <view class="groupScoreBox" wx:for="{{item.groupMatches}}" wx:for-item="groupMatch">
+                        <view class="teamInfo">
+                            <span class="teamNum">{{groupMatch.teamNum}}.</span>
+                            <image src="{{groupMatch.teamPic}}"></image>
+                            <span class="teamName">{{groupMatch.teamName}}</span>
+                        </view>
+                        <view class="teamScore">
+                            <span>{{groupMatch.v_s}}</span>
+                            <span>{{groupMatch.d_s}}</span>
+                            <span>{{groupMatch.f_s}}</span>
+                            <span>{{groupMatch.goal_fumble}}</span>
+                            <span>{{groupMatch.score}}</span>
+                        </view>
+                    </view>
+                    
+                </view>
+            </view>
+        </view>
+        <view class="eliminate" wx:if="{{selected=='2'}}">
+            <image src="../../images/wc/knockoutPic.jpg" mode="aspectFill"></image>
+        </view>
+        <view class="shooter" wx:if="{{selected=='3'}}">
+            <text>暂无信息</text>
+        </view>
+    </view>
+</view>

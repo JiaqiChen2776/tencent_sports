@@ -1,1 +1,192 @@
-/* pages/hot/hot.wxss */
+html,body {
+    margin: 0;
+    background-color: #fff;
+}
+
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.date-nav {
+    width: 100%;
+    height: 50px;
+    color: #576b95;
+    border-bottom: 1px solid #D6D7DC;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 50px;
+    box-sizing: border-box;
+}
+
+.icon-base {
+    width: 50px;
+    height: 40px;
+    text-indent: -10000px;
+}
+
+.pre-day.disable {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUxpcdfX3dbX3Ba2E+MAAAACdFJOUwCAmytOGAAAADBJREFUGNNjYCASMDpAGWwToAwpGCMLKsW4EqZkCQVKEAy4FFwxXDvZiiage4cAAABouQ733DGGOgAAAABJRU5ErkJggg==);
+}
+
+.next-day.disable {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUxpcdfX3dbX3Ba2E+MAAAACdFJOUwCAmytOGAAAADBJREFUGNNjYCAKMDpAGWwTYIwlMKmVMEVZMEVSFCqCM+BScMUw7WQpgTse7h2CAABlyw737F65+gAAAABJRU5ErkJggg==);
+}
+
+.pre-day {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUxpcVdrlVdrlSQW+8sAAAACdFJOUwCAmytOGAAAADBJREFUGNNjYCASMDpAGWwToAwpGCMLKsW4EqZkCQVKEAy4FFwxXDvZiiage4cAAABouQ733DGGOgAAAABJRU5ErkJggg==) no-repeat;
+    background-position: 15px 16px;
+    background-size: 16px 16px;
+}
+
+.next-day {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUxpcVdrlVdrlSQW+8sAAAACdFJOUwCAmytOGAAAADBJREFUGNNjYCAKMDpAGWwTYIwlMKmVMEVZMEVSFCqCM+BScMUw7WQpgTse7h2CAABlyw737F65+gAAAABJRU5ErkJggg==) no-repeat;
+    background-position: 20px 16px;
+    background-size: 16px 16px;
+}
+
+.pre-day {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 19%;
+}
+
+.cur-day {
+    text-align: center;
+}
+
+.next-day {
+    position: absolute;
+    top: 0;
+    right: 19%;
+}
+
+.calendar-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 12px;
+    vertical-align: -5px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA5UExURUxpcVlxllhrlldrlVhslllsmGlyp1drlldrlldrlVdrlVdsl1hsllhrlVdrlllrllhrlVdrlldrlQOfAVkAAAASdFJOUwAd4/dFMQmUqM+AbIFtu1i8WvkgXRYAAAC0SURBVHja1ZLJCoQwEAXbLcZd6/8/dsDLQ8ILA8McrIsEyrQ2FW8DnqcfxESFFKKhQhNiYHKjJ4YQPacTT/oQBzkMmSPEwujEkSXEzOrElfnx2ubE7TEscznxIofY718DKB49e4iJwYj3ikVLE4aGNkRHcmKiex7caF2i60tRn6UmHKpCTZSoCjVhRqsKNWFEVaEmXBWmCV+FmvBVqAmDqtCqCsolt1Rp1QRVuvgvGL4XX8QHUxQX0bgy8H4AAAAASUVORK5CYII=) no-repeat;
+    background-size: 20px 20px;
+}
+
+.content {
+    min-height: 350px;
+}
+
+.one-day {
+    width: 100%;
+    height: 800rpx;
+}
+
+
+
+.matchList {
+    margin-top: 35rpx;
+}
+
+.matchList .gameDate {
+    font-size: 25rpx;
+}
+
+.weui-cells {
+    margin-top: 10rpx;
+}
+
+.weui-cell {
+    border: 1px solid #fff;
+}
+
+.weui-cell__hd {
+    width: 146rpx;
+    overflow: hidden;
+}
+
+.weui-cell__hd text {
+    display: block;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    margin-bottom: 15rpx;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    font-size: 24rpx;
+}
+
+.weui-cell__hd text:nth-child(2) {
+    font-size: 20rpx;
+    color: #898989;
+}
+
+.weui-cell__bd {
+    margin-left: 30rpx;
+}
+
+.weui-cell__bd view {
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__bd view:nth-child(1) {
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__bd image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.weui-cell__bd span {
+    font-size: 28rpx;
+    padding-left: 20rpx;
+}
+
+.weui-cell__ft {
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .ft_left {
+    margin-right: 50rpx;
+}
+
+.weui-cell__ft .gameScore {
+    display: block;
+}
+
+.weui-cell__ft .scoreM{
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__ft .gameLive view{
+    display: inline;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .gameLive .livePic{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 5rpx;
+}
+
+.weui-cell__ft .gameLive span {
+    font-size: 22rpx;
+}
+
+.noMatches {
+    font-size: 32rpx;
+    color: #9c9c9c;
+    display: flex;
+    justify-content: center;
+    padding-top: 150rpx;
+}

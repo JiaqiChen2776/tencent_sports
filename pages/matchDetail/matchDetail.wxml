@@ -1,0 +1,49 @@
+<!--pages/matchDetail/matchDetail.wxml-->
+<view class="container">
+    <view class="match_hd">
+        <view class="match_desc">
+            <view class="teamBox">
+                <image class="teamPic" src="http://mat1.gtimg.com/2018/images/team/1225.png"></image>
+                <text class="teamName">埃及</text>
+            </view>
+            <view class="pk_info">
+                <view class="gameDateTime">
+                    <text class="gameDate">6月15日</text>
+                    <text class="gameTime">20:00</text>
+                    <text>未开始</text>
+                </view>
+                <view class="orderBox" bindtap="bindOrderMatch">
+                    <view class="ordered" wx:if="{{ordered}}">
+                        <image src="../../images/clock_cancel@3x.png"></image>
+                        <span>已预约</span>
+                    </view>
+                    <view wx:else class="noOrder">
+                        <image src="../../images/clock_active@3x.png"></image>
+                        <span>预约</span>
+                    </view>
+                </view>
+                
+                <text>世界杯组第1轮</text>
+            </view>
+            <view class="teamBox">
+                <image class="teamPic" src="http://mat1.gtimg.com/2018/images/team/837.png"></image>
+                <text class="teamName">乌拉圭</text>
+            </view>
+        </view>
+        <view class="matchBar" bindtap="switchTab">
+            <span class="match_info {{barCurIndex=='0'?'barOn':''}}" data-id="0">数据</span>
+            <span class="match_news {{barCurIndex=='1'?'barOn':''}}" data-id="1">资讯</span>
+        </view>
+        
+    </view>
+    <view class="match_bd">
+        <view class="matchBarInfo">
+            <view class="matchInfo {{barInfoIndex=='0'?'barInfoOn':''}}">
+                <text>比赛未开始 暂无数据</text>
+            </view>
+            <view class="matchNews {{barInfoIndex=='1'?'barInfoOn':''}}">
+                <text>文章列表</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -25,6 +25,20 @@ Page({
         team_2_score: 0,
         gameLive: true,
         isStart: false
+      },
+      {
+        id: '2',
+        gameDate: '6月7日 星期四',
+        gameTime: '9:00',
+        gameName: 'NBA季后赛',
+        team_1: '骑士',
+        team_1_pic: 'http://img1.gtimg.com/sports/pics/hv1/131/116/2220/144385211.png',
+        team_1_score: 0,
+        team_2: '勇士',
+        team_2_pic: 'http://mat1.gtimg.com/sports/nba/logo/black/9.png',
+        team_2_score: 0,
+        gameLive: true,
+        isStart: false
       }
     ]
   },
@@ -33,7 +47,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**

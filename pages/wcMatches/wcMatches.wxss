@@ -1,0 +1,292 @@
+/* pages/wcMatches/wcMatches.wxss */
+.container {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f3f3f7;
+}
+
+page {
+    background-color: #f3f3f7;
+}
+
+.header_bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* padding: 0 56rpx; */
+    height: 84rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 35rpx;
+    color: #666;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header_bar span {
+    padding: 0 50rpx;
+}
+
+.wc_bd {
+    margin-top: 84rpx;
+    overflow: hidden;
+}
+
+.barOn {
+    color: #2d73ff;
+}
+
+.sortBarOn {
+    color: #fff;
+}
+
+/* .gameOrder {
+    margin-top: 35rpx;
+} */
+
+.wcMatches {
+    margin-bottom: 90rpx;
+}
+
+.SortSwitchBar {
+    background-color: #2d73ff;
+    color: #fff;
+    position: fixed;
+    height: 70rpx;
+    width: 396rpx;
+    bottom: 32rpx;
+    /* left: 50%;
+    margin-right: 50%; */
+    /* margin-left: 198rpx; */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 65rpx;
+    border-radius: 35rpx;
+    color: #abceff;
+    text-align: center;
+}
+
+.groupMatch_hd {
+    background-color: #f3f3f7;
+    font-size: 26rpx;
+    padding: 0 40rpx;
+    height: 74rpx;
+    line-height: 74rpx;
+}
+
+.groupMatch_bd {
+    background-color: #fff;
+    
+}
+
+.groupMatch_bd view {
+    line-height: 139rpx;
+    text-align: center;
+    height: 139rpx;
+    margin: 0 30rpx;
+    font-size: 35rpx;
+    color: #abceff;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.SortSwitchBar span {
+    font-size: 30rpx;
+}
+
+.gameOrder .gameDate {
+    font-size: 25rpx;
+}
+
+.weui-cells {
+    margin-top: 10rpx;
+}
+
+.weui-cell {
+    border: 1px solid #fff;
+}
+
+.weui-cell__hd {
+    text-align: center;
+}
+
+.weui-cell__hd text {
+    display: block;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    margin-bottom: 15rpx;
+}
+
+.weui-cell__hd text:nth-child(1) {
+    font-size: 24rpx;
+}
+
+.weui-cell__hd text:nth-child(2) {
+    font-size: 20rpx;
+    color: #898989;
+}
+
+.weui-cell__bd {
+    margin-left: 50rpx;
+}
+
+.weui-cell__bd view {
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__bd view:nth-child(1) {
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__bd image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.weui-cell__bd span {
+    font-size: 28rpx;
+    padding-left: 20rpx;
+}
+
+.weui-cell__ft {
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .ft_left {
+    margin-right: 50rpx;
+}
+
+.weui-cell__ft .gameScore {
+    display: block;
+}
+
+.weui-cell__ft .scoreM{
+    margin-bottom: 10rpx;
+}
+
+.weui-cell__ft .gameLive view{
+    display: inline;
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell__ft .gameLive .livePic{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 5rpx;
+}
+
+.weui-cell__ft .gameLive span {
+    font-size: 22rpx;
+}
+
+.groupBox {
+    margin-top: 22rpx;
+    overflow: hidden;
+}
+
+.groupBox:nth-child(1) {
+    margin-top: 0;
+}
+
+.group_hd {
+    height: 63rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 35rpx;
+    padding-right: 20rpx;
+    font-size: 24rpx;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.scoreInfo, .teamScore {
+    width: 374rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #969ba3;
+}
+
+.teamScore {
+    color: #000;
+    font-size: 26rpx;
+}
+
+.group_bd {
+    background-color: #fff;
+}
+
+.groupScoreBox {
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 26rpx;
+    margin-right: 20rpx;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.teamInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teamInfo .teamNum {
+    font-size: 24rpx;
+    color: #969ba3;
+    padding-left: 10rpx;
+}
+
+.teamInfo .teamName {
+    font-size: 30rpx;
+}
+
+.group_bd image {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0 20rpx 0 25rpx;
+}
+
+.teamScore span:nth-child(5) {
+   padding-right: 20rpx;
+   width: 30rpx;
+   text-align: right;
+}
+
+.eliminate {
+    width: 100%;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.eliminate image {
+    width: 100%;
+    height: 1000rpx;
+    padding-top: 30rpx;
+}
+
+.shooter {
+    height: 700rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    color: #abceff;
+}

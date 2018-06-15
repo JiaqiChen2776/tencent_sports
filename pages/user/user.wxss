@@ -12,6 +12,19 @@ page {
     background-color: #0061b8;
 }
 
+.header .userinfo {
+    display: flex;
+    align-items: center;
+}
+
+
+.header .userinfo button {
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #0061b8;
+    border: 1px solid #fff;
+}
+
 .header .userinfo-avatar {
     width: 130rpx;
     height: 130rpx;
