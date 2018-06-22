@@ -1,19 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/hot/hot",
     "pages/calendar/calendar",
-    
-    "pages/index/index",
     "pages/nbaMatches/nbaMatches",
     "pages/wcMatches/wcMatches",
     "pages/order/order",
-    
     "pages/matchDetail/matchDetail",
     "pages/articleDetail/articleDetail",
-    
     "pages/game/game",
     "pages/user/user",
-    "pages/logs/logs",
     "pages/cbaMatches/cbaMatches",
     "pages/matchesNoBar/matchesNoBar"
   ],
