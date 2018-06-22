@@ -2,7 +2,8 @@
 const app = getApp()
 Page({
   data: {
-    swiperCurIndex: 2,
+    swiperCurIndex: 1,
+    dayListIndex:0,
     month: '',
     day: '',
     week: '',
@@ -17,20 +18,51 @@ Page({
     vLive_text:'视频直播',
     pLive_pic: '../../images/pLive.png',
     pLive_text:'图文直播',
-    dayList: []
+    dayList: [],
+    sub_dayList: []
   },
 
   onLoad: function (options) {
+    let dayListIndex = this.data.dayListIndex;
     this.setData({
       dayList: app.globalData.dayList
     })
     console.log(this.data.dayList);
+    let testArr = [];
+    for (let i = dayListIndex;i<dayListIndex+5;i++) {
+      testArr.push(this.data.dayList[i]);
+    }
+    console.log(testArr);
+    this.setData({
+      sub_dayList: testArr,
+      dayListIndex: this.data.dayListIndex + 5
+    })
+    console.log(this.data.dayListIndex);
   },
 
   changeMatch(e) {
     const current = e.detail.current;
     const befInd = this.data.swiperCurIndex;
+    const dayListIndex = this.data.dayListIndex;
     const index = current - befInd;
+    var arr = [];
+    if (current == this.data.sub_dayList.length-1){
+      for (let i = dayListIndex;i<dayListIndex+5;i++){
+        arr.push(this.data.dayList[i]);
+      }
+      var testArr = [
+        ...this.data.sub_dayList,
+        ...arr
+      ];
+      this.setData({
+        sub_dayList: testArr
+      })
+    }
+    if (current == 0) {
+      wx.showToast({
+        title: '暂无更多赛事',
+      })
+    }
     if (index <= -1) {
       this.preDay();
 
@@ -40,6 +72,8 @@ Page({
       return
     }
     this.setData({
+      // sub_dayList: testArr
+      // dayListIndex: this.data.dayListIndex + 5
       // swiperCurIndex: current,
     })
   },

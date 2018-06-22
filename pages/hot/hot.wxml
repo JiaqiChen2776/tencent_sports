@@ -11,9 +11,9 @@
             &lt;
         </view>
     </view>
-    <!-- indicator-dots  -->
-    <swiper bindchange="changeMatch" circular="false" class="one-day" current="{{swiperCurIndex}}">
-        <swiper-item wx:for="{{dayList}}" wx:for-index="index">
+    <!-- indicator-dots circular="false"  -->
+    <swiper bindchange="changeMatch" indicator-dots class="one-day" current="{{swiperCurIndex}}">
+        <swiper-item wx:for="{{sub_dayList}}" wx:for-index="index">
             <view wx:if="{{item.gameDate==curDate}}">
                 <view class="matchList" wx:for="{{item.gameList}}" wx:for-item="match" wx:key="{{match.id}}">
                     <view class="weui-cells">
@@ -56,7 +56,6 @@
                                         <span>未开始</span>
                                     </view>
                                 </view>
-                                
                             </view>
                         </navigator>
                     </view>
